@@ -12,7 +12,7 @@ $(document).ready(function() {
             return;
         }
         const signUpData = {
-            username: username,
+            name: username,
             email: email,
             password: password
         };
@@ -55,6 +55,7 @@ $(document).ready(function() {
             contentType: 'application/json',
             data: JSON.stringify(signInData),
             success: function(response) {
+                localStorage.setItem("token",response.data.token);
                 alert('Sign in successful!');
                 window.location.href = 'dashboard.html';
             },
